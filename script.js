@@ -1,28 +1,51 @@
-/* Three variables which hold three names */
-var name1 = 'Grace';
-var name2 = 'Clinton';
-var name3 = 'Jessica';
-
 /* A prompt for users to input the three names */
-var names = prompt("Please enter my, the instructor and assistance's names.");
 
-/* The variables to count the number of characters in each name */
-var n1 = name1.length; 
-var n2 = name2.length;
-var n3 = name3.length;
+var name1 = prompt("This program identifies the longest of three names.\nPlease enter the first name: ");
+var name2 = prompt("Enter a second name: ");
+var name3 = prompt("Finally, enter a third name: ");
 
-/* If else statement to determine which name is the longest */
-if (n1 > n2 && n1 > n3) {
-    console.log(name1 + ' has the longest name.');
-}
-else if (n2 === n3) {
-    console.log(name2 + ' and ' + name3 + ' tie for the longest name.');
-}
-else {
-    console.log('All three names ' + name1 + ', ' + name2 + ' and ' + name3 + ' are the same length.');
+var names = [name1, name2, name3];
+
+/* We want to go through all name lengths and find the largest value.*/  
+/* Declare a variable to hold largest value.  Initialize it to 0 for now (since we don't know yet)*/
+var maxLength = 0;
+
+/* Find the maxLength */
+for (var i = 0; i < names.length; i++){
+    if (names[i].length > maxLength || names[i].length == maxLength)
+        maxLength = names[i].length;
 }
 
-/* The statement to print the output on the page */
-var output = name2 + ' and ' + name3 + ' tie for the longest name.';
+/* Declare an empty array to hold names with length = maxLength */
+var maxNames = [];
+
+/* compare the length of each name to maxLength.  If length is same, store in maxNames. */
+for (var i = 0; i < names.length; i++) {
+    if (names[i].length == maxLength)
+    {
+        maxNames.push(names[i]);
+    }
+}
+
+
+/* Determine how many names were put into the maxNames array to set the correct output. */
+var output = "";
+
+switch(maxNames.length) {
+    // if only one name in array
+    case 1:
+        output = maxNames[0] + ' has the longest name.';
+    break;
+    // if there are two in the array
+    case 2:
+        output = maxNames[0] + ' and ' + maxNames[1] +  ' tie for the longest name.';
+    break;
+    // if all three in the array
+    case 3:
+        output = 'All three names ' + maxNames[0] + ', ' + maxNames[1] + ' and ' + maxNames[2] + ' are the same length.';
+    break;
+    default:
+        output = 'Something happened.  Could not find longest name.';
+}
 console.log(output);
 
