@@ -6,7 +6,6 @@ var name3 = prompt("Finally, enter a third name: ");
 
 var names = [name1, name2, name3];
 
-/* We want to go through all name lengths and find the largest value.*/  
 /* Declare a variable to hold largest value.  Initialize it to 0 for now (since we don't know yet)*/
 var maxLength = 0;
 
@@ -32,15 +31,14 @@ for (var i = 0; i < names.length; i++) {
 var output = "";
 
 switch(maxNames.length) {
-    // if only one name in array
     case 1:
         output = maxNames[0] + ' has the longest name.';
     break;
-    // if there are two in the array
+    
     case 2:
         output = maxNames[0] + ' and ' + maxNames[1] +  ' tie for the longest name.';
     break;
-    // if all three in the array
+    
     case 3:
         output = 'All three names ' + maxNames[0] + ', ' + maxNames[1] + ' and ' + maxNames[2] + ' are the same length.';
     break;
